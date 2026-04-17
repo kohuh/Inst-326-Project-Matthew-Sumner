@@ -13,7 +13,7 @@ pip install google-search-results
 
 ## What has not been working?
 
-# We've had to completely shift focus on the API we're using. Previously, Amadeus seemed like a great fit, but their website has experienced a massive upheavel which makes actually the client ID and secret code impossible. As a result, we had to switch to alternatives like Kiwi(tequila) which offers exactly what we're looking for --airline, prices, flights for 12 months in advance-- at the caveot that the flight prices aren't entirely up-to date.
+# We've had to completely shift focus on the API front and move to scraping data via SerpAPI. Previously, Amadeus seemed like a great fit, but their website has experienced a massive upheavel which makes actually the client ID and secret code impossible. As a result, we had to switch to alternatives like Kiwi(tequila) which didn't work out since they only offer their services to business, which then led us to pivot to SerpAPI. This  offers exactly what we're looking for --airline, prices, flights for 12 months in advance-- at the caveot that the flight prices are pulled directly from google flights and we are limtied by the number of tokens we can use (max 250).
 
 ## What can you do differently to address what hasn't been working?
 
