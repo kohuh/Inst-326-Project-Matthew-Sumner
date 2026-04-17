@@ -4,7 +4,8 @@ The project for our Repository
 
 
 ### READ ME
-
+start by opening terminal and running:
+pip install google-search-results
 
 ## What has been working?
 
