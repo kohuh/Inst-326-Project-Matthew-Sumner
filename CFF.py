@@ -1,22 +1,24 @@
 #Cheap, Financial Flights
 
 #1) data processing component that pulls data from API
-from serpapi import GoogleSearch
-import pandas as pd
+#Make sure you download the following before running the code:
+#pip install google-search-results
 
-param = {
+import pandas as pd
+import serpapi 
+
+params = {
+    "api_key": "65aadbc33f7564338658dd6568a7b3e2dcc100ebe47fa43f51dbcf03beda75b6",
     "engine": "google_flights",
-    "departure_id": "JFK",          
-    "arrival_id": "LAX",         
-    "outbound_date": "2026-06-15",  
-    "currency": "USD",
-    "hl": "en",
-    "api_key": "65aadbc33f7564338658dd6568a7b3e2dcc100ebe47fa43f51dbcf03beda75b6"
+    "departure_id": "PQC",
+    "arrival_id": "AUS",
+    "outbound_date": "2025-10-08",
+    "return_date": "2025-10-22",
+    "deep_search": "true"
 }
 
-search = GoogleSearch(param)
-
-
+search = serpapi.search(params)
+results = search.as_dict()
 
 #Potential use case for using Pandas `DataFrame` to store and analyze flight data, including prices, airlines, and departure times
 
