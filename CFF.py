@@ -49,13 +49,13 @@ class CheapFinancialFlights:
          results = search.get_dict()
          return results
     
+# Plan unit test 1: Making sure that the data was correcetly pulled from the API and gives us our desirable data
+
+
 #Need to include price filter for user to filter out flights that are above a certain price point. 
 # Also, potential for a filter for flight duration to ensure that the user is not presented with flights 
 # that are too long or too short for their preferences. This can be if we don't meet enough of the requirments 
 # for code patterns.
-if __name__=="__main__":
-    results = CheapFinancialFlights().get_flight_data()
-    print(results)
 
 
 
@@ -75,7 +75,7 @@ if __name__=="__main__":
 #We would be using filters for flight options based on user preference, such as price, duration, and airline. Additionally,
 # by implementing a sorting algorithm, we can rank flight options based on affordability and time spent in air
 
-# Plan unit test 1: Making sure that the data was correcetly pulled from the API and gives us our desirable data
+
 # Plan unit test 2: ensure that the 10 reported flights are the cheapest possible
 # Plan unit test 3: Raise value error if user inputs a destination or airport which does not exist
 # Plan unit test 4: return nothing if the flight criteria is not possible
