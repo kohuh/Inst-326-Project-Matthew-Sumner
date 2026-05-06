@@ -16,13 +16,17 @@ class FlightSearch:
         self.outbound_date=outbound_date
         param = {
             "engine": "google_flights", "departure_id": self.departure, "arrival_id": self.arrival, "outbound_date": self.outbound_date, "currency": "USD", "hl": "en",
-            "api_key": "65aadbc33f7564338658dd6568a7b3e2dcc100ebe47fa43f51dbcf03beda75b6", "sort_by":2, "max_price":self.max_price
+            "api_key": "65aadbc33f7564338658dd6568a7b3e2dcc100ebe47fa43f51dbcf03beda75b6", "sort_by":2, "max_price":self.max_price, "type": 2
         }
-        search = GoogleSearch(param)  
+        search = GoogleSearch(param)
+        self.convertToList(search)
     def convertToList(self, dictionary):
         temp=json.loads(dictionary)
         flightList=[]
         for i in temp:
+            
+
+
             
             
 #Potential use case for using Pandas `DataFrame` to store and analyze flight data, including prices, airlines, and departure times.
