@@ -49,6 +49,16 @@ class CheapFinancialFlights:
          results = search.get_dict()
          return results
     
+    def sort_by_price(self):
+         """
+         Functionality:
+         Takes the flight data and sorts by price, reuturning 10 cheapest flights.
+         """
+         flight_data=self.get_flight_data()
+         flights=flight_data.get("flights", [])
+         
+
+    
 # Plan unit test 1: Making sure that the data was correcetly pulled from the API and gives us our desirable data
 
 
