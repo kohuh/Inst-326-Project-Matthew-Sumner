@@ -1,91 +1,32 @@
 #Cheap, Financial Flights
-
-#1) data processing component that pulls data from API
-#Make sure you download the following before running the code:
-#pip install google-search-results
-
-
-
-import pandas as pd
 from serpapi import GoogleSearch
+import pandas as pd
+import json
+
+class FlightSearch:
+    def __init__(self, departure, arrival, min_price, max_price, outbound_date):
+        if min_price<=0 or max_price<=0:
+            raise ValueError("Prices must exceed 0")
+        elif min_price>max_price:
+            raise ValueError("Minimum price must be less than or equal to max price")
+        self.departure=departure
+        self.arrival=arrival
+        self.min_price=min_price
+        self.max_price=max_price
+        self.outbound_date=outbound_date
+        param = {
+            "engine": "google_flights", "departure_id": self.departure, "arrival_id": self.arrival, "outbound_date": self.outbound_date, "currency": "USD", "hl": "en",
+            "api_key": "65aadbc33f7564338658dd6568a7b3e2dcc100ebe47fa43f51dbcf03beda75b6", "sort_by":2, "max_price":self.max_price, "type": 2
+        }
+        search = GoogleSearch(param)
+        self.convertToList(search)
+    def convertToList(self, dictionary):
+        temp=json.loads(dictionary)
+        flightList=[]
+        for i in temp:
+            
 
 
-class CheapFinancialFlights:
-    def __init__(self):
-        self.api_key = "65aadbc33f7564338658dd6568a7b3e2dcc100ebe47fa43f51dbcf03beda75b6"
-
-    def search_flights(self):
-            """
-            This function retrieves flight records from user input and returns a list of the 
-            10 cheapest flights that match the criteria. It uses the SerpAPI to access flight 
-            data and processes it to find the best options for the user.
-            """
-            departure = input("Enter departure airport code (i.e, PQC): ")
-            arrival = input("Enter arrival airport code (i.e, AUS): ")
-            airline = input("Enter preferred airline (optional): ")
-            outbound_date = input("Enter outbound date (YYYY-MM-DD): ")
-            return_date = input("Enter return date (YYYY-MM-DD): ")
-
-            params = {
-                "api_key": self.api_key,
-                "departure_id": departure,
-                "arrival_id": arrival,
-                "airline": airline,
-                "outbound_date": outbound_date,
-                "return_date": return_date,
-                "deep_search": "true"}
-            return params
-
-
-    def get_flight_data(self):
-         """
-         Functionaility:
-         This function will call the search_flights function, get search paramaters, and 
-         use that flight data to convert it into a dictionary that will be used for futher 
-         processing.
-         """
-         retireval = self.search_flights()
-         search = GoogleSearch(retireval)
-         results = search.get_dict()
-         return results
-    
-    def sort_by_price(self):
-         """
-         Functionality:
-         Takes the flight data and sorts by price, reuturning 10 cheapest flights.
-         """
-         flight_data=self.get_flight_data()
-         flights=flight_data.get("flights", [])
-         
-
-    
-# Plan unit test 1: Making sure that the data was correcetly pulled from the API and gives us our desirable data
-
-
-#Need to include price filter for user to filter out flights that are above a certain price point. 
-# Also, potential for a filter for flight duration to ensure that the user is not presented with flights 
-# that are too long or too short for their preferences. This can be if we don't meet enough of the requirments 
-# for code patterns.
-
-
-
-#Potential use case for using Pandas `DataFrame` to store and analyze flight data, including prices, airlines, and departure times
-
-
-#2) data processing component to clean up the data
-#Potential use case for using Pandas `DataFrame` to clean and preprocess the flight data, such as handling missing values, 
-# converting data types, and filtering out irrelevant information
-
-#3) pricing component to get the prices for flights
-#Allows for easy sorting and querying of price data, the primary function of our app is to expeditiously find flights which 
-# match the users criteria for the cheapest possible price.
-
-#4) logic component for the flights
-
-#We would be using filters for flight options based on user preference, such as price, duration, and airline. Additionally,
-# by implementing a sorting algorithm, we can rank flight options based on affordability and time spent in air
-
-
-# Plan unit test 2: ensure that the 10 reported flights are the cheapest possible
-# Plan unit test 3: Raise value error if user inputs a destination or airport which does not exist
-# Plan unit test 4: return nothing if the flight criteria is not possible
+            
+            
+#Potential use case for using Pandas `DataFrame` to store and analyze flight data, including prices, airlines, and departure times.
