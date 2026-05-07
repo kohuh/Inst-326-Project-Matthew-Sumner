@@ -15,9 +15,10 @@ class FlightSearch:
         self.min_price=min_price
         self.max_price=max_price
         self.outbound_date=outbound_date
+        self.api_key = os.getenv("api_key")
         param = {
             "engine": "google_flights", "departure_id": self.departure, "arrival_id": self.arrival, "outbound_date": self.outbound_date, "currency": "USD", "hl": "en",
-            "api_key": "2fa1e48f28a2949f47a62f717b2b70e051afb251b0abf77717c5c9462b155c7f", "sort_by":2, "max_price":self.max_price, "type": 2
+            "api_key": self.api_key, "sort_by":2, "max_price":self.max_price, "type": 2
         }
         search = GoogleSearch(param)
         self.convertToList(search)
