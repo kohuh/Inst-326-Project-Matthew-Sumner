@@ -20,6 +20,7 @@ class FlightSearch:
         }
         search = GoogleSearch(param)
         self.convertToList(search)
+
     def convertToList(self, dictionary):
         temp=json.loads(dictionary)
         flightList=[]
@@ -37,8 +38,8 @@ class FlightSearch:
 if __name__ == "__main__":
     departure = input("Enter departure location: (i.e., JFK) ")
     arrival = input("Enter arrival location: (i.e., LAX) ")
-    min_price = float(input("Enter minimum price: "))
-    max_price = float(input("Enter maximum price: "))
+    min_price = float(input("Enter minimum price: $"))
+    max_price = float(input("Enter maximum price: $"))
     outbound_date = input("Enter outbound date (YYYY-MM-DD): ")
 
     flight_search = FlightSearch(departure, arrival, min_price, max_price, outbound_date)
