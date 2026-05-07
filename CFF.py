@@ -2,6 +2,7 @@
 from serpapi import GoogleSearch
 import pandas as pd
 import json
+import os
 
 class FlightSearch:
     def __init__(self, departure, arrival, min_price, max_price, outbound_date):
