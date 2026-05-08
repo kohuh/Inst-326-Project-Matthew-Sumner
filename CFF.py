@@ -1,6 +1,4 @@
 #Cheap, Financial Flights
-from re import search
-
 from serpapi import GoogleSearch
 import pandas as pd
 import json
@@ -35,6 +33,9 @@ class FlightSearch:
             # Extract relevant flight information
             airline = flight.get("airline", "N/A")
             #... (Extract other relevant flight information such as price, departure time, etc.)
+            price = flight.get("price", "N/A")
+            departure_time = flight.get("departure_time", "N/A")
+
 
 
 
