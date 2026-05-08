@@ -1,4 +1,6 @@
 #Cheap, Financial Flights
+from re import search
+
 from serpapi import GoogleSearch
 import pandas as pd
 import json
@@ -24,6 +26,7 @@ class FlightSearch:
         self.convertToList(search)
 
     def convertToList(self, dictionary):
+        search.get_json()
         temp=json.loads(dictionary)
         flightList=[]
         # for i in temp:
