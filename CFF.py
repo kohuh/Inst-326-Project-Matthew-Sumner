@@ -8,10 +8,6 @@ import os
 
 class FlightSearch:
     def __init__(self, departure, arrival, min_price, max_price, outbound_date):
-        if min_price<=0 or max_price<=0:
-            raise ValueError("Prices must exceed 0")
-        elif min_price>max_price:
-            raise ValueError("Minimum price must be less than or equal to max price")
         self.departure=departure
         self.arrival=arrival
         self.min_price=min_price
@@ -24,12 +20,24 @@ class FlightSearch:
         }
         search = GoogleSearch(param)
         self.convertToList(search)
+    
+    def sortByPrice(self):
+        if self.min_price<=0 or self.max_price<=0:
+            raise ValueError("Prices must exceed 0")
+        elif self.min_price>self.max_price:
+            raise ValueError("Minimum price must be less than or equal to max price")
+        
 
     def convertToList(self, dictionary):
-        search.get_json()
-        temp=json.loads(dictionary)
-        flightList=[]
-        # for i in temp:
+        flight_list=[]
+        flights=dictionary.get_dict().get("flights", [])
+        for flight in flights:
+            # Extract relevant flight information
+            airline = flight.get("airline", "N/A")
+            #... (Extract other relevant flight information such as price, departure time, etc.)
+
+
+
 
     def storeData(self, flightList):
         """
@@ -37,8 +45,9 @@ class FlightSearch:
         """
         df = pd.DataFrame(flightList, columns=['Airline', 'Price', 'Departure Time', 'Arrival Time'])
         df.to_csv('flights.csv', index=False)
+        print(df)
 
-
+    
 
 if __name__ == "__main__":
     departure = input("Enter departure location: (i.e., JFK) ")
@@ -48,8 +57,3 @@ if __name__ == "__main__":
     outbound_date = input("Enter outbound date (YYYY-MM-DD): ")
 
     flight_search = FlightSearch(departure, arrival, min_price, max_price, outbound_date)
-
-
-            
-            
-#Potential use case for using Pandas `DataFrame` to store and analyze flight data, including prices, airlines, and departure times.
