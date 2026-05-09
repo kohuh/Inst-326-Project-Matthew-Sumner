@@ -11,8 +11,7 @@ class FlightSearch:
         self.min_price=min_price
         self.max_price=max_price
         self.outbound_date=outbound_date
-        #self.api_key = os.getenv("api_key")
-        self.api_key = os.getenv("3d39eb189e17e631e1448aaa9fe368fc52344f30a2a3ad937f26f066ceec1b52")
+        self.api_key = os.getenv("api_key")
         param = {
             "engine": "google_flights", "departure_id": self.departure, "arrival_id": self.arrival, "outbound_date": self.outbound_date, "currency": "USD", "hl": "en",
             "api_key": self.api_key, "sort_by":2, "max_price":self.max_price, "type": 2
@@ -29,12 +28,11 @@ class FlightSearch:
         
 
     def combThrough(self, dictionary):
-        flight_list=[]
         flights=json.loads
         for t in flights:
             flights={}
             # Extract relevant flight information
-            t{"airline:" }
+            t{"airline: "}
             #... (Extract other relevant flight information such as price, departure time, etc.)
 
 

@@ -1,24 +1,18 @@
 # Inst-326-Project-Matthew-Sumner
 
-The project for our Repository
-
-
 ### READ ME
-start by opening terminal and running:
+Start by opening terminal and running:
 pip install google-search-results
 
-## What has been working?
+## What is this?
+What we have created is a program that runs a search for the ten cheapest flights from a departure city to an arrival city given a specific date. Using the SerpAPI, we are able to extract the relavent information such as the airline, price, departure time, and arrival time. We then output this information in a readible format for the user.
 
-# We're working together well and have a solid idea of where to progress. Now that we have our API sorted out, it enables us to begin working and completing the desirable program. 
+## How to use this program?
+Before running, it is essential you run the following command in your terminal:
 
-## What has not been working?
+pip install google-search-results
 
-# We've had to completely shift focus on the API front and move to scraping data via SerpAPI. Previously, Amadeus seemed like a great fit, but their website has experienced a massive upheavel which makes actually the client ID and secret code impossible. As a result, we had to switch to alternatives like Kiwi(tequila) which didn't work out since they only offer their services to business, which then led us to pivot to SerpAPI. This  offers exactly what we're looking for --airline, prices, flights for 12 months in advance-- at the caveot that the flight prices are pulled directly from google flights and we are limtied by the number of tokens we can use (max 250).
+After installing the required package, to use this program, just run the CFF.py file and input the values for departure, arrival, minimum price, maximum price, and outbound date. The program will then return the 10 cheapest flights matching your criteria.
 
-## What can you do differently to address what hasn't been working?
-
-# We feel this was a necessary step. Without first experiencing the different flight API's out there, we likely couldn't as decisevly have come to a conlusion on which API to use. The kind of data we're looking for is extremely competitive since airlines don't openly share their flight prices which has led us to using our best available option.
-
-## The link to the Github repository. (this repo should be public, it may be private so long as instructor Cruz is invited to it as a collaborator with the email gcruz12@umd.edu) 
-
-# We have shared this to the gcruz email.
+## Why did you create this program?
+We wanted to create this program to help people like ourselves find cheap, financial flights quick and easily. While we were at it, we also wanted to refine our skills in python and when working with APIs. We hope this program can be useful for anyone looking to find cheap flights without having to sift through the countless options.
