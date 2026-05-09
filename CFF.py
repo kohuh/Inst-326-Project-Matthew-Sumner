@@ -19,7 +19,7 @@ class FlightSearch:
         }
         client = serpapi.Client(api_key=self.api_key)
         search = client.search(param)
-        self.combThrough(search["best_flights"])
+        self.combThrough(search["best"])
     
     def sortByPrice(self):
         if self.min_price<=0 or self.max_price<=0:
@@ -28,13 +28,12 @@ class FlightSearch:
             raise ValueError("Minimum price must be less than or equal to max price")
         
 
-    def combThrough(self, dictionary):
+    def combThrough(self, inputs):
         flight_list=[]
         flights=json.loads
         for t in flights:
             flights={}
             # Extract relevant flight information
-            t{"airline:" }
             #... (Extract other relevant flight information such as price, departure time, etc.)
 
 
@@ -48,7 +47,27 @@ class FlightSearch:
         df.to_csv('flights.csv', index=False)
         print(df)
 
-    
+class Flight():
+    def __init__(self, airline, price, departure_time, arrival_time, duration=0, layover=False):
+        self.airline=airline 
+        self.price=price 
+        self.departure_time=departure_time
+        self.arrival_time=arrival_time
+        self.layover=layover
+    def __lt__(self, other):
+        if isinstance(other, Flight):
+            if other.price>=self.price:
+                return True
+            else:
+                return False
+    def __eq__(self, other):
+        if isinstance(other, Flight):
+            if other.price==self.price:
+                return True
+            else:
+                return False
+        else:
+            raise ValueError("Object Other is not Instance of Flight object")
 
 if __name__ == "__main__":
     departure = input("Enter departure location: (i.e., JFK) ")
