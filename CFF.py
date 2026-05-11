@@ -33,6 +33,9 @@ class FlightSearch:
         all_itineraries = search.get("best_flights", []) + search.get("other_flights", [])
         self.flightList=self.createList(all_itineraries) #creates list of flight objects
 
+        #Unit test for __init__ function
+        #fs = FlightSearch("CDG", "AUS", "2026-09-12")
+
     def sortByPrice(self):
         """
         Sorts list of flight objects by price from lowest to highest.
@@ -153,7 +156,7 @@ class Flight():
         arrival time, duration.
         return: (str) A string of the flight object in a readable format including afformentioned attributes.
         """
-        return f"airline flight number {self.flight_number} on {self.airline}, for {self.price}, leaving at {self.departure_time}, and arriving at {self.arrival_time}, for a total of {self.duration}"
+        return f"airline flight number {self.flight_number} on {self.airline}, for ${self.price} dollars, leaving at {self.departure_time}, and arriving at {self.arrival_time}, for a total of {self.duration} minutes."
     
     def __repr__(self):
         """
@@ -169,5 +172,10 @@ if __name__ == "__main__":
     departure code, arrival code, and outbound date.
     """
     fs = FlightSearch("CDG", "AUS", "2026-09-12")
-    fs.printList()
-
+    # fs.printList()
+    assert fs.departure == "CDG", "Departure airport code not set correctly"
+    assert fs.arrival == "AUS", "Arrival airport code not set correctly"
+    assert fs.outbound_date == "2026-09-12", "Outbound date not set correctly"
+    assert isinstance(fs.flightList, list), "Flight list not created correctly"
+    print("tests passed.")
+    assert 5 == 5
