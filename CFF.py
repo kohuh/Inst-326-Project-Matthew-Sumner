@@ -164,7 +164,7 @@ class Flight():
         These elements include: flight number, airline, price, departure time, arrival time, and duration.
         return: (str) A string of the flight object including the afformentioned attributes.
         """
-        return f"({self.flight_number}, {self.airline}, {self.price}, {self.departure_time}, {self.arrival_time}, {self.duration}, {self.layover}"
+        return f"({self.flight_number}, {self.airline}, {self.price}, {self.departure_time}, {self.arrival_time}, {self.duration}, {self.layover}.)"
 
 if __name__ == "__main__":
     """
@@ -172,10 +172,10 @@ if __name__ == "__main__":
     departure code, arrival code, and outbound date.
     """
     fs = FlightSearch("CDG", "AUS", "2026-09-12")
-    # fs.printList()
+    fs.printList()
+    
     assert fs.departure == "CDG", "Departure airport code not set correctly"
     assert fs.arrival == "AUS", "Arrival airport code not set correctly"
     assert fs.outbound_date == "2026-09-12", "Outbound date not set correctly"
     assert isinstance(fs.flightList, list), "Flight list not created correctly"
     print("tests passed.")
-    assert 5 == 5
