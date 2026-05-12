@@ -73,9 +73,9 @@ class FlightSearch:
         return priced_list
     
     #Unit test for setPriceRange function
-    #fs = FlightSearch("CDG", "AUS", "2026-09-12")
-    # assert len(fs.setPriceRange(500))==len(fs.flightList), "When price range with min_price=0, return all flights with price less than max_price."
-    
+    fs = FlightSearch("CDG", "AUS", "2026-09-12")
+    assert len(fs.setPriceRange(500))==len(fs.flightList), "When price range with min_price=0, return all flights with price less than max_price."
+
     
     def printList(self):
         """
