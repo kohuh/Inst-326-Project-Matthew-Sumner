@@ -1,16 +1,17 @@
 # Inst-326-Project-Matthew-Sumner
 
 ### READ ME
+1. Clone the repository:
+git clone https://github.com/yourusername/CFF.git
+cd CFF
 Start by opening terminal and running:
-pip install google-search-results
+pip install -r requirements.txt
 
 ## What is this?
 What we have created is a program that runs a search for the ten cheapest flights from a departure city to an arrival city given a specific date. Using the SerpAPI, we are able to extract the relavent information such as the airline, price, departure time, and arrival time. We then output this information in a readible format for the user.
 
 ## How to use this program?
 Before running, it is essential you run the following command in your terminal:
-
-pip install google-search-results
 
 After installing the required package, to use this program, just run the CFF.py file and input the values for departure, arrival, minimum price, maximum price, and outbound date. The program will then return the 10 cheapest flights matching your criteria.
 
