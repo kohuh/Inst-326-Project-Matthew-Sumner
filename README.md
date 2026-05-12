@@ -2,8 +2,7 @@
 
 ### READ ME
 1. Clone the repository:
-git clone https://github.com/yourusername/CFF.git
-cd CFF
+In the repository
 Start by opening terminal and running:
 pip install -r requirements.txt
 
